@@ -1,0 +1,10 @@
+
+<a href="{% url 'person_list:detail' person.id %}">&lt; Back to detail page</a>
+
+<h2>Delete Person?</h2>
+
+<p>Are you sure you want to delete <strong>{{ person.last_name }}, {{ person.first_name}}</strong> from our records?</p>
+<form action="{% url 'person_list:delete' person.id %}" method="post">
+	{% csrf_token %}
+	<input type="submit" value="DELETE" />
+</form>

@@ -1,0 +1,12 @@
+
+<a href="{% url 'person_list:detail' person.id %}">&lt; Back to detail page</a>
+
+<h2>Editing {{ person.last_name }}, {{ person.first_name }}</h2>
+
+{% if person_form %}
+	<form action="{% url 'person_list:edit' person.id %}" method="post">
+		{% csrf_token %}
+		{{ person_form.as_p }}
+		<input type="submit" value="Save" />
+	</form>
+{% endif %}

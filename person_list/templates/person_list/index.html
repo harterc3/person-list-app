@@ -1,0 +1,11 @@
+{% if person_list %}
+	<ul>
+	{% for person in person_list %}
+		<li><a href="{% url 'person_list:detail' person.id %}">{{ person.last_name }}, {{ person.first_name }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No people have been entered into this list.</p>
+{% endif %}
+
+<a href="{% url 'person_list:create' %}">Create New Person</a>

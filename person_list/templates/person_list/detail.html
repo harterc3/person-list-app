@@ -1,0 +1,10 @@
+
+<a href="{% url 'person_list:index' %}">&lt; Back to index page</a>
+
+<h2>{{ person.last_name }}, {{ person.first_name }}</h2>
+
+<span>DoB: {{ person.date_of_birth }}</span><br/>
+<span>Zip: {{ person.zip_code }}</span><br/>
+
+<a href="{% url 'person_list:edit' person.id %}">EDIT</a><br/>
+<a href="{% url 'person_list:delete' person.id %}">DELETE</a>
