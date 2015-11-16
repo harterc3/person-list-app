@@ -9,7 +9,7 @@
 <p>Are you sure you want to delete <strong>{{ person.last_name }}, {{ person.first_name}}</strong> from our records?</p>
 <form action="{% url 'person_list:delete' person.id %}" method="post">
 	{% csrf_token %}
-	<input type="submit" value="DELETE" />
+	<button class="btn btn-danger" type="submit">DELETE</button>
 </form>
 
 {% endblock body %}

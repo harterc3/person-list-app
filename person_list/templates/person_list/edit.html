@@ -3,7 +3,6 @@
 {% block head_scripts %}
 	<link rel="stylesheet" href="https://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/css/datepicker3.css"></link>
 	<script src="https://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-
 {% endblock %}
 
 {% block body %}
@@ -18,7 +17,7 @@
 	<form action="{% url 'person_list:edit' person.id %}" method="post">
 		{% csrf_token %}
 		{{ person_form.as_p }}
-		<input type="submit" value="Save" />
+		<button class="btn btn-primary" type="submit">Save</button>
 	</form>
 {% endif %}
 
