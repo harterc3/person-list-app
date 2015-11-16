@@ -1,7 +1,17 @@
+{% extends "person_list/base_layout.html" %}
 
-<a href="{% url 'person_list:index' %}">&lt; Back to index page</a>
+{% block head_scripts %}
+	<link rel="stylesheet" href="https://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/css/datepicker3.css"></link>
+	<script src="https://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+{% endblock %}
 
-<h2>Create a new person</h2>
+{% block body %}
+
+<a class="btn btn-default" role="button" href="{% url 'person_list:index' %}">&lt; Back to index page</a>
+
+<div class="page-header">
+	<h4>Create a New Person</h4>
+</div>
 
 {% if person_form %}
 	<form action="{% url 'person_list:create' %}" method="post">
@@ -10,3 +20,13 @@
 		<input type="submit" value="Save" />
 	</form>
 {% endif %}
+
+{% endblock body %}
+
+{% block body_scripts %}
+<script>
+	$('#id_date_of_birth').datepicker({
+		format: "yyyy-mm-dd"
+	});
+</script>
+{% endblock %}

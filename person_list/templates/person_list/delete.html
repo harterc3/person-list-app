@@ -1,5 +1,8 @@
+{% extends "person_list/base_layout.html" %}
 
-<a href="{% url 'person_list:detail' person.id %}">&lt; Back to detail page</a>
+{% block body %}
+
+<a class="btn btn-default" role="button" href="{% url 'person_list:detail' person.id %}">&lt; Back to detail page</a>
 
 <h2>Delete Person?</h2>
 
@@ -8,3 +11,5 @@
 	{% csrf_token %}
 	<input type="submit" value="DELETE" />
 </form>
+
+{% endblock body %}

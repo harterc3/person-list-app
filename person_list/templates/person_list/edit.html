@@ -1,7 +1,18 @@
+{% extends "person_list/base_layout.html" %}
 
-<a href="{% url 'person_list:detail' person.id %}">&lt; Back to detail page</a>
+{% block head_scripts %}
+	<link rel="stylesheet" href="https://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/css/datepicker3.css"></link>
+	<script src="https://eternicode.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 
-<h2>Editing {{ person.last_name }}, {{ person.first_name }}</h2>
+{% endblock %}
+
+{% block body %}
+
+<a class="btn btn-default" role="button" href="{% url 'person_list:detail' person.id %}">&lt; Back to detail page</a>
+
+<div class="page-header">
+	<h4>Editing Person: {{ person.last_name }}, {{ person.first_name }}</h4>
+</div>
 
 {% if person_form %}
 	<form action="{% url 'person_list:edit' person.id %}" method="post">
@@ -10,3 +21,13 @@
 		<input type="submit" value="Save" />
 	</form>
 {% endif %}
+
+{% endblock body %}
+
+{% block body_scripts %}
+<script>
+	$('#id_date_of_birth').datepicker({
+		format: "yyyy-mm-dd"
+	});
+</script>
+{% endblock %}
